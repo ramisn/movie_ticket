@@ -1,0 +1,10 @@
+
+<%= div_for movie do %>
+  <%= link_to image_tag(movie.image_url, size: "120x120"), movie %>
+  <h2><%= link_to_unless_current movie.title, movie %></h2>
+  <%= link_to_unless_current movie.showtime.strftime("%H:%M")%>
+  <%= simple_format movie.place %>
+    
+  <em>added by <%= link_to movie.user.name, movie.user %></em>
+<% end %>
+

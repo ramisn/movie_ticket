@@ -1,0 +1,9 @@
+<%= render @movie %>
+
+<%= link_to "Back to Movies", movies_path %>
+<% if @movie.user == current_user %>
+  | <%= link_to "Edit Movie", edit_movie_path(@movie) %>
+  | <%= link_to "Destroy Movie", @movie, method: :delete %>
+<% end %>
+
+
