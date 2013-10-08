@@ -1,4 +1,4 @@
 movie_ticket
 ============
 
-Online Movie Ticket Booking site
+Online Movie Ticket Booking Application. Now in Beta version.
