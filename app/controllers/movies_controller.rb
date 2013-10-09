@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
-  before_filter :require_login, except: [:index, :show]
+    
+  skip_before_filter :require_login, :only => [:search]
 
   def index
     @movies = Movie.all
@@ -43,6 +44,11 @@ class MoviesController < ApplicationController
   end
 
   def search
-    @movies = Movie.search(params[:search])  
+
+    if params[:movie][:search].blank?
+      @movies = Movie.all
+    else
+      @movies = Movie.search(params[:movie][:search])
+    end
   end
 end

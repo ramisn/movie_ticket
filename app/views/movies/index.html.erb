@@ -1,22 +1,14 @@
 
-
-<table id="table_style", align="center">
-<div><tr>
-	<td><%= form_tag search_path do %></td>
-	<td><%= text_field_tag :search, params[:search], :id => 'search_field' %></td>
-	<td><%= submit_tag "Search", class: "btn btn-success", :place => nil %></td>
-</tr>
-
-</table>
-
-
-<%= render @movies %>
-
-<% end %>
 <% if current_user %>
-
 <a href= "movies/new" class="btn btn-primary btn-lg disabled">Add Movie</a>
 <% end %>
-
-
+<table id="table_style", align="right">
+            <div><tr>
+            <td><%= form_tag search_path do %></td>
+            <td><%= select :movie, :search, Movie.select("distinct place").collect(&:place), :prompt => "Select Place" %></td>
+            <td><%= submit_tag "Search", class: "btn btn-success", :place => nil %></td>
+            <% end %>
+            </tr>
+</table>
+<%= render @movies %>
 

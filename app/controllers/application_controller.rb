@@ -7,9 +7,15 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   hide_action :current_user
 
-private
+  private
 
   def require_login
     redirect_to login_url, alert: "You must first log in or sign up." if current_user.nil?
   end
+
 end
+
+
+
+
+

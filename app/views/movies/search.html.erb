@@ -1,6 +1,14 @@
 <H3 style='text-align:center'>Movie Details</H3>
 <br/>
-<table id="table_style">
+<table id="table_style", align="right">
+            <div><tr>
+            <td><%= form_tag search_path do %></td>
+            <td><%= select :movie, :search, Movie.select("distinct place").collect(&:place), :prompt => "Select Place" %></td>
+            <td><%= submit_tag "Search", class: "btn btn-success", :place => nil %></td>
+            <% end %>
+            </tr>
+</table>
+<table id="table_style", align="center">
 <tr><ul>
 	<% @movies.each do |movie| %>
 	<li><p><%= link_to movie.title, :action => 'show', :id => movie.id %></li><%= link_to image_tag(movie.image_url, size: "120x120"), movie %></p>
@@ -9,4 +17,5 @@
 
 </tr></ul>
 </table>
+
 

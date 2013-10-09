@@ -6,6 +6,6 @@ class Movie < ActiveRecord::Base
   belongs_to :user
 
   def self.search(search)
- 	find(:all, :conditions => ['title LIKE ? OR place LIKE ?', search, search])
- end
+  find(:all, :conditions => ['place LIKE ?', search])
+  end
 end
